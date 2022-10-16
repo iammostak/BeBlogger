@@ -82,11 +82,12 @@ function Navbar() {
                   isSigninWithEmailOpen={isSigninWithEmailOpen}
                   onSigninWithEmailClose={onSigninWithEmailClose}
                   onSigninOpen={onSigninOpen}
-               />
+                  />
                <SignupWithEmail
                   isSignupWithEmailOpen={isSignupWithEmailOpen}
                   onSignupWithEmailClose={onSignupWithEmailClose}
                   onSignupOpen={onSignupOpen}
+                  onSigninWithEmailOpen={onSigninWithEmailOpen}
                />
             </HStack>
          </HStack>

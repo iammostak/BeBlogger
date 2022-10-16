@@ -16,24 +16,72 @@ import {
    ModalOverlay,
    Text,
    useDisclosure,
+   useToast,
    VStack,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useState, useEffect, ChangeEvent } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { BiHide, BiShow } from "react-icons/bi";
+import { useDispatch } from "react-redux";
+import { signupAction } from "../../store/auth/auth.actions";
 
 type Params = {
    isSignupWithEmailOpen: boolean;
    onSignupWithEmailClose: Function;
    onSignupOpen: Function;
+   onSigninWithEmailOpen: Function;
+};
+
+const User: {
+   email: string;
+   password: string;
+} = {
+   email: "",
+   password: "",
 };
 
 function SignupWithEmail({
    isSignupWithEmailOpen,
    onSignupWithEmailClose,
    onSignupOpen,
+   onSigninWithEmailOpen,
 }: Params) {
    const [show, setShow] = useState<boolean>(false);
+   const [user, setUser] = useState(User);
+   const dispatch = useDispatch();
+   const toast = useToast();
+
+   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+      const { name, value } = event.target;
+      setUser({
+         ...user,
+         [name]: value,
+      });
+   };
+
+   const handleSubmit = () => {
+      dispatch<any>(signupAction(user)).then((res: any) => {
+         if (res) {
+            onSignupWithEmailClose();
+            toast({
+               title: "Account Created.",
+               description: "Yahoo! We've created a account for you.",
+               status: "success",
+               duration: 3000,
+               isClosable: true,
+            });
+            onSigninWithEmailOpen();
+         } else {
+            toast({
+               title: "Signup Failed.",
+               description: "User already exists, please try to login.",
+               status: "error",
+               duration: 3000,
+               isClosable: true,
+            });
+         }
+      });
+   };
 
    return (
       <Modal
@@ -73,30 +121,44 @@ function SignupWithEmail({
                      Enter email
                   </FormLabel>
                   <Input
+                     value={user.email}
+                     onChange={handleChange}
                      mb={7}
                      px={4}
                      name="email"
                      type="email"
                      variant={"flushed"}
                      focusBorderColor={"gray.700"}
+                     textAlign={"center"}
                   />
                   <FormLabel textAlign="center" fontWeight={400}>
                      Set password
                   </FormLabel>
                   <InputGroup>
                      <Input
+                        value={user.password}
+                        onChange={handleChange}
                         mb={10}
                         px={4}
                         name="password"
                         type={show ? "text" : "password"}
                         variant={"flushed"}
                         focusBorderColor={"gray.700"}
+                        textAlign={"center"}
                      />
                      <InputRightElement>
                         {show ? (
-                           <BiShow size={20} onClick={() => setShow(!show)} />
+                           <BiShow
+                              size={20}
+                              cursor={"pointer"}
+                              onClick={() => setShow(!show)}
+                           />
                         ) : (
-                           <BiHide size={20} onClick={() => setShow(!show)} />
+                           <BiHide
+                              size={20}
+                              cursor={"pointer"}
+                              onClick={() => setShow(!show)}
+                           />
                         )}
                      </InputRightElement>
                   </InputGroup>
@@ -109,6 +171,7 @@ function SignupWithEmail({
                   spacing={4}
                >
                   <Button
+                     onClick={handleSubmit}
                      py={6}
                      bg={"#191918"}
                      color={"white"}
