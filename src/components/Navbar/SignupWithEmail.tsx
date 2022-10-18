@@ -69,6 +69,7 @@ function SignupWithEmail({
                status: "success",
                duration: 3000,
                isClosable: true,
+               position: "top",
             });
             onSigninWithEmailOpen();
          } else {
@@ -78,6 +79,7 @@ function SignupWithEmail({
                status: "error",
                duration: 3000,
                isClosable: true,
+               position: "top",
             });
          }
       });

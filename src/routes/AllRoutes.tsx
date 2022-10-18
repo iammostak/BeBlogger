@@ -20,9 +20,9 @@ function AllRoutes() {
          <Route
             path="/home"
             element={
-               // <RequireAuth>
-               <Home />
-               // </RequireAuth>
+               <RequireAuth>
+                  <Home />
+               </RequireAuth>
             }
          />
       </Routes>

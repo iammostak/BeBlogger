@@ -43,6 +43,8 @@ function Navbar() {
          justify={"space-between"}
          borderBottom={"1px solid"}
          bg={"#ffc118"}
+         pos={"sticky"}
+         top={0}
       >
          <Box as={NavLink} to={"/"}>
             <Image
@@ -82,7 +84,7 @@ function Navbar() {
                   isSigninWithEmailOpen={isSigninWithEmailOpen}
                   onSigninWithEmailClose={onSigninWithEmailClose}
                   onSigninOpen={onSigninOpen}
-                  />
+               />
                <SignupWithEmail
                   isSignupWithEmailOpen={isSignupWithEmailOpen}
                   onSignupWithEmailClose={onSignupWithEmailClose}

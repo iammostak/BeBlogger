@@ -14,13 +14,12 @@ const Auth: {
 };
 
 function RequireAuth({ children }: any) {
-   // let auth = (localStorage.getItem("jwt")) || "";
-   // auth = JSON.parse(auth) || Auth;
-   // console.log(auth);
-   // if (auth) {
-   //    return children;
-   // }
-   // return <Navigate to="/" />;
+   let auth = JSON.parse(`${localStorage.getItem("jwt")}`) || Auth;
+
+   if (auth.mainToken.length !== 0) {
+      return children;
+   }
+   return <Navigate to="/" />;
 }
 
 export default RequireAuth;
