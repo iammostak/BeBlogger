@@ -1,13 +1,13 @@
 import { Box, Container, Flex } from "@chakra-ui/react";
 import SideBar from "../../components/Sidebar/Sidebar";
 
-function Home() {
+function Lists() {
    return (
       <Container as={Flex} maxW={"container"} p={0} m={0}>
-         <SideBar route="home" />
-         <Box w={"93.8%"}>home!</Box>
+         <SideBar route="lists" />
+         <Box w={"93.8%"}>lists!</Box>
       </Container>
    );
 }
 
-export default Home;
+export default Lists;

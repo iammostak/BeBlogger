@@ -3,6 +3,7 @@ import {
    LOGIN_ERROR,
    LOGIN_LOADING,
    LOGIN_SUCCESS,
+   LOGOUT_SUCCESS,
    SIGNUP_ERROR,
    SIGNUP_LOADING,
    SIGNUP_SUCCESS,
@@ -42,4 +43,8 @@ export const loginAction = (creds: userCred) => async (dispatch: any) => {
       dispatch({ type: LOGIN_ERROR });
       return false;
    }
+};
+
+export const logoutAction = () => async (dispatch: any) => {
+   dispatch({ type: LOGOUT_SUCCESS });
 };

@@ -14,6 +14,9 @@ import {
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookSquare } from "react-icons/fa";
 import { TfiEmail } from "react-icons/tfi";
+import { useDispatch } from "react-redux";
+import { logoutAction } from "../../store/auth/auth.actions";
+import { useNavigate } from "react-router-dom";
 
 type Params = {
    isSigninOpen: boolean;
@@ -21,6 +24,8 @@ type Params = {
    onSigninClose: Function;
    onSignupOpen: Function;
    onSigninWithEmailOpen: Function;
+   token: string;
+   setToken: Function;
 };
 
 function SigninButton({
@@ -29,33 +34,45 @@ function SigninButton({
    onSigninClose,
    onSignupOpen,
    onSigninWithEmailOpen,
+   token,
+   setToken,
 }: Params) {
+   const dispatch = useDispatch();
+   const navigate = useNavigate();
+
+   const handleLogout = () => {
+      dispatch<any>(logoutAction());
+      setToken();
+      navigate("/");
+   };
+
    return (
       <>
          <Button
-            onClick={() => onSigninOpen()}
+            onClick={() => {
+               token.length === 0 ? onSigninOpen() : handleLogout();
+            }}
             variant={"unstyled"}
             fontWeight={400}
-            fontSize={18}
+            fontSize={14}
             _hover={{ bg: "transparent" }}
          >
-            Sign In
+            {token.length === 0 ? "Sign In" : "Logout"}
          </Button>
 
          <Modal
-            size={"4xl"}
+            size={{ base: "3xl", lg: "2xl" }}
             isOpen={isSigninOpen}
             onClose={() => onSigninClose()}
          >
             <ModalOverlay />
             <ModalContent h={"100vh"} m={0} borderRadius={0}>
                <ModalHeader
-                  mt={{ base: 10, md: 28 }}
-                  mb={{ base: 0, md: 10 }}
+                  mt={{ base: 10, md: 40, lg: 10 }}
                   textAlign="center"
                   fontFamily={"Times New Roman"}
-                  fontSize={38}
-                  fontWeight={500}
+                  fontSize={30}
+                  fontWeight={400}
                   letterSpacing={1}
                >
                   Welcome back.
@@ -66,21 +83,19 @@ function SigninButton({
                <ModalBody mt={7}>
                   <VStack
                      m={"auto"}
-                     w={{ base: "80%", md: "50%", lg: "33%" }}
+                     w={{ base: "80%", md: "40%", lg: "36%" }}
                      align={"stretch"}
                      spacing={4}
                   >
                      <Button
-                        py={6}
-                        leftIcon={<FcGoogle size={27} />}
+                        py={4}
+                        leftIcon={<FcGoogle size={24} />}
                         borderColor={"blackAlpha.400"}
-                        size={"lg"}
                         variant={"outline"}
                         borderRadius={30}
-                        fontWeight={500}
-                        fontSize={{ base: "md", md: "lg" }}
+                        fontWeight={400}
                         color={"blackAlpha.800"}
-                        iconSpacing={4}
+                        iconSpacing={2}
                         _hover={{
                            bg: "transparent",
                            borderColor: "blackAlpha.600",
@@ -89,18 +104,16 @@ function SigninButton({
                         Sign in with Google
                      </Button>
                      <Button
-                        py={6}
+                        py={4}
                         leftIcon={
-                           <FaFacebookSquare size={27} color={"#4267B2"} />
+                           <FaFacebookSquare size={22} color={"#4267B2"} />
                         }
                         borderColor={"blackAlpha.400"}
-                        size={"lg"}
                         variant={"outline"}
                         borderRadius={30}
-                        fontWeight={500}
-                        fontSize={{ base: "md", md: "lg" }}
+                        fontWeight={400}
                         color={"blackAlpha.800"}
-                        iconSpacing={4}
+                        iconSpacing={2}
                         _hover={{
                            bg: "transparent",
                            borderColor: "blackAlpha.600",
@@ -113,16 +126,14 @@ function SigninButton({
                            onSigninClose();
                            onSigninWithEmailOpen();
                         }}
-                        py={6}
-                        leftIcon={<TfiEmail size={24} />}
+                        py={4}
+                        leftIcon={<TfiEmail size={19} />}
                         borderColor={"blackAlpha.400"}
-                        size={"lg"}
                         variant={"outline"}
                         borderRadius={30}
-                        fontWeight={500}
-                        fontSize={{ base: "md", md: "lg" }}
+                        fontWeight={400}
                         color={"blackAlpha.800"}
-                        iconSpacing={4}
+                        iconSpacing={2}
                         _hover={{
                            bg: "transparent",
                            borderColor: "blackAlpha.600",
@@ -131,11 +142,7 @@ function SigninButton({
                         Sign in with E-mail
                      </Button>
                   </VStack>
-                  <HStack
-                     my={10}
-                     justify={"center"}
-                     fontSize={{ base: "lg", md: "xl" }}
-                  >
+                  <HStack my={10} justify={"center"}>
                      <Text>No account?</Text>
                      <Button
                         onClick={() => {
@@ -143,7 +150,6 @@ function SigninButton({
                            onSignupOpen();
                         }}
                         color={"green"}
-                        fontSize={{ base: "lg", md: "xl" }}
                         variant={"unstyled"}
                      >
                         Create one
@@ -152,21 +158,27 @@ function SigninButton({
                   <Box
                      textAlign={"center"}
                      my={14}
-                     color={"blackAlpha.700"}
+                     color={"blackAlpha.600"}
                      fontWeight={500}
+                     fontSize={"sm"}
                   >
                      Forgot email or trouble signing in?{" "}
-                     <span style={{ textDecoration: "underline" }}>
+                     <span
+                        style={{
+                           textDecoration: "underline",
+                           cursor: "pointer",
+                        }}
+                     >
                         Get help.
                      </span>
                   </Box>
                   <Box
                      w={{ base: "90%", md: "70%" }}
                      m={"auto"}
-                     color={"blackAlpha.700"}
+                     color={"blackAlpha.600"}
                      fontWeight={500}
                      textAlign={"center"}
-                     fontSize={{ base: "sm", md: "md" }}
+                     fontSize={"sm"}
                   >
                      Click “Sign Up” to agree to Medium’s{" "}
                      <span

@@ -87,15 +87,14 @@ function SignupWithEmail({
 
    return (
       <Modal
-         size={"4xl"}
+         size={{ base: "3xl", lg: "2xl" }}
          isOpen={isSignupWithEmailOpen}
          onClose={() => onSignupWithEmailClose()}
       >
          <ModalOverlay />
          <ModalContent h={"100vh"} m={0} borderRadius={0}>
             <ModalHeader
-               mt={{ base: 10, md: 28 }}
-               mb={{ base: 0, md: 10 }}
+               mt={{ base: 7, md: 40, lg: 20 }}
                textAlign="center"
                letterSpacing={1}
                fontWeight={400}
@@ -103,11 +102,11 @@ function SignupWithEmail({
                <Heading
                   fontWeight={400}
                   fontFamily={"Times New Roman"}
-                  fontSize={"4xl"}
+                  fontSize={30}
                >
                   Sign up with email
                </Heading>
-               <Text fontSize={"lg"} my={4} fontFamily={"Helvetica"}>
+               <Text fontSize={"sm"} my={4} fontFamily={"Helvetica"}>
                   Enter your email address to create an account.
                </Text>
             </ModalHeader>
@@ -117,9 +116,13 @@ function SignupWithEmail({
             <ModalBody mt={7}>
                <FormControl
                   m={"auto"}
-                  w={{ base: "90%", md: "55%", lg: "37%" }}
+                  w={{ base: "90%", md: "47%", lg: "40%" }}
                >
-                  <FormLabel textAlign="center" fontWeight={400}>
+                  <FormLabel
+                     textAlign={"center"}
+                     fontSize={"sm"}
+                     fontWeight={400}
+                  >
                      Enter email
                   </FormLabel>
                   <Input
@@ -133,7 +136,11 @@ function SignupWithEmail({
                      focusBorderColor={"gray.700"}
                      textAlign={"center"}
                   />
-                  <FormLabel textAlign="center" fontWeight={400}>
+                  <FormLabel
+                     textAlign={"center"}
+                     fontSize={"sm"}
+                     fontWeight={400}
+                  >
                      Set password
                   </FormLabel>
                   <InputGroup>
@@ -151,13 +158,13 @@ function SignupWithEmail({
                      <InputRightElement>
                         {show ? (
                            <BiShow
-                              size={20}
+                              size={17}
                               cursor={"pointer"}
                               onClick={() => setShow(!show)}
                            />
                         ) : (
                            <BiHide
-                              size={20}
+                              size={17}
                               cursor={"pointer"}
                               onClick={() => setShow(!show)}
                            />
@@ -168,19 +175,17 @@ function SignupWithEmail({
 
                <VStack
                   m={"auto"}
-                  w={{ base: "80%", md: "50%", lg: "33%" }}
+                  w={{ base: "80%", md: "40%", lg: "36%" }}
                   align={"stretch"}
                   spacing={4}
                >
                   <Button
                      onClick={handleSubmit}
-                     py={6}
+                     py={4}
                      bg={"#191918"}
                      color={"white"}
-                     size={"lg"}
                      borderRadius={30}
                      fontWeight={400}
-                     fontSize={{ base: "md", md: "lg" }}
                      iconSpacing={4}
                      _hover={{
                         bg: "#191918",
@@ -197,13 +202,11 @@ function SignupWithEmail({
                         onSignupOpen();
                      }}
                      color={"green"}
-                     fontSize={{ base: "lg" }}
                      variant={"ghost"}
                      letterSpacing={1}
                      leftIcon={<IoIosArrowBack size={20} />}
                      _hover={{ bg: "transparent" }}
                      borderRadius={30}
-                     size={{ base: "md", md: "lg" }}
                   >
                      All Sign up options
                   </Button>

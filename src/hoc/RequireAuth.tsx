@@ -1,10 +1,6 @@
 import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 
-// type Props = {
-//    children: Function;
-// };
-
 const Auth: {
    mainToken: string;
    refreshToken: string;
