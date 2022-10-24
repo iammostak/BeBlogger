@@ -17,7 +17,7 @@ type Params = {
    route: string;
 };
 
-function SideBar({ route }: Params) {
+function Sidebar({ route }: Params) {
    const [active, setActive] = useState<string>("home");
    const navigate = useNavigate();
 
@@ -29,12 +29,13 @@ function SideBar({ route }: Params) {
    return (
       <VStack
          h={"100vh"}
-         w={"6.2%"}
+         w={{ base: "17%", md: "11%", lg: "6.2%" }}
          py={10}
          justify="space-between"
          spacing={0}
          borderRight={"1px solid"}
          borderColor={"blackAlpha.200"}
+         pos={"fixed"}
       >
          <Box>
             <SiMedium
@@ -166,7 +167,11 @@ function SideBar({ route }: Params) {
             <VStack spacing={20}>
                <Tooltip hasArrow label="Write" bg="#191919" placement="right">
                   <Box>
-                     <TfiWrite size={20} style={{ cursor: "pointer" }} />
+                     <TfiWrite
+                        onClick={() => navigate("/write")}
+                        size={20}
+                        style={{ cursor: "pointer" }}
+                     />
                   </Box>
                </Tooltip>
                <FaUserCircle size={30} style={{ cursor: "pointer" }} />
@@ -176,4 +181,4 @@ function SideBar({ route }: Params) {
    );
 }
 
-export default SideBar;
+export default Sidebar;

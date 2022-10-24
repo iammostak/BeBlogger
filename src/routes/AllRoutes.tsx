@@ -6,6 +6,7 @@ import Landing from "./Landing/Landing";
 import Lists from "./Lists/Lists";
 import Notifications from "./Notifications/Notifications";
 import Stories from "./Stories/Stories";
+import Write from "./Write/Write";
 
 function AllRoutes() {
    return (
@@ -48,6 +49,14 @@ function AllRoutes() {
             element={
                <RequireAuth>
                   <Stories />
+               </RequireAuth>
+            }
+         />
+         <Route
+            path="/write"
+            element={
+               <RequireAuth>
+                  <Write />
                </RequireAuth>
             }
          />
