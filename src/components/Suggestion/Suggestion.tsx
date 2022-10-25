@@ -12,7 +12,28 @@ import {
    VStack,
 } from "@chakra-ui/react";
 import AdCard from "./AdCard";
+import Connect from "./Connect";
 import StaffPicks from "./StaffPicks";
+import Topics from "./Topics";
+
+const staffPicks = [
+   {
+      avatar: "https://avatars.githubusercontent.com/u/101392142?v=4",
+      name: "Suraj Kumar Mishra",
+      heading:
+         "Want to Communicate Effectively at Work? Eliminate these 5 Cognitive Distortions",
+   },
+   {
+      avatar: "https://avatars.githubusercontent.com/u/102856087?v=4",
+      name: "Madhukesh Kumar Thakur",
+      heading: "So When, Exactly, Did Conspiracy Culture Stop Being Fun?",
+   },
+   {
+      avatar: "https://avatars.githubusercontent.com/u/99809028?v=4",
+      name: "Md Mostafijur Rahman",
+      heading: "If You Try To Do Everything, You Won't Do Anything",
+   },
+];
 
 function Suggestion() {
    return (
@@ -61,12 +82,17 @@ function Suggestion() {
                      d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
                   />
                </Icon>
-               <Heading textAlign={"left"} size={"sm"}>
+               <Heading
+                  textAlign={"left"}
+                  size={"sm"}
+                  fontFamily={"Helvetica"}
+                  letterSpacing={0.3}
+               >
                   Staff Picks
                </Heading>
             </HStack>
-            {new Array(3).fill("").map((item) => (
-               <StaffPicks />
+            {staffPicks.map((item) => (
+               <StaffPicks {...item} />
             ))}
             <Text
                w={"30%"}
@@ -80,6 +106,8 @@ function Suggestion() {
             </Text>
          </VStack>
          <AdCard />
+         <Connect />
+         <Topics />
       </VStack>
    );
 }

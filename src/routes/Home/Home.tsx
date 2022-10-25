@@ -7,6 +7,7 @@ function Home() {
       <Container as={Flex} maxW={"container"} p={0} m={0}>
          <Sidebar route="home" />
          <Flex
+            // h={'700vh'}
             w={"100%"}
             pos={"relative"}
             ml={{ base: "17%", md: "11%", lg: "6.2%" }}
