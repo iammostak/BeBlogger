@@ -13,6 +13,8 @@ import {
 } from "@chakra-ui/react";
 import AdCard from "./AdCard";
 import Connect from "./Connect";
+import ExtraInfo from "./ExtraInfo";
+import Follow from "./Follow";
 import StaffPicks from "./StaffPicks";
 import Topics from "./Topics";
 
@@ -41,11 +43,11 @@ function Suggestion() {
          px={8}
          py={10}
          w={"33%"}
-         // h={"200vh"}
+         h={"300vh"}
          align={"stretch"}
          spacing={10}
          pos={"sticky"}
-         // top={"-100vh"}
+         top={"-200vh"}
       >
          <Button
             w={"100%"}
@@ -108,6 +110,8 @@ function Suggestion() {
          <AdCard />
          <Connect />
          <Topics />
+         <Follow />
+         <ExtraInfo />
       </VStack>
    );
 }

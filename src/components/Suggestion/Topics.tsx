@@ -12,7 +12,7 @@ const data = [
 
 function Topics() {
    return (
-      <VStack align={"stretch"} spacing={5}>
+      <VStack align={"stretch"} spacing={6}>
          <Heading textAlign={"left"} size={"sm"} fontFamily={"Helvetica"}>
             Recommended topics
          </Heading>

@@ -7,7 +7,6 @@ function Home() {
       <Container as={Flex} maxW={"container"} p={0} m={0}>
          <Sidebar route="home" />
          <Flex
-            // h={'700vh'}
             w={"100%"}
             pos={"relative"}
             ml={{ base: "17%", md: "11%", lg: "6.2%" }}
@@ -17,7 +16,9 @@ function Home() {
                h={"100%"}
                borderRight="1px solid"
                borderColor="blackAlpha.200"
-            ></VStack>
+            >
+               <Box>home!</Box>
+            </VStack>
             <Suggestion />
          </Flex>
       </Container>

@@ -21,7 +21,7 @@ function StaffPicks(item: Props) {
                {name}
             </Text>
          </HStack>
-         <Heading textAlign={"left"} size={"sm"}>
+         <Heading textAlign={"left"} size={"sm"} color={"blackAlpha.900"}>
             {heading}
          </Heading>
       </VStack>
