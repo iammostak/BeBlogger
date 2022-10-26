@@ -1,6 +1,7 @@
 import { Box, Container, Flex, VStack } from "@chakra-ui/react";
 import Suggestion from "../../components/Suggestion/Suggestion";
 import Sidebar from "../../components/Sidebar/Sidebar";
+import Blogs from "./Blogs";
 
 function Home() {
    return (
@@ -11,14 +12,7 @@ function Home() {
             pos={"relative"}
             ml={{ base: "17%", md: "11%", lg: "6.2%" }}
          >
-            <VStack
-               w={"67%"}
-               h={"100%"}
-               borderRight="1px solid"
-               borderColor="blackAlpha.200"
-            >
-               <Box>home!</Box>
-            </VStack>
+            <Blogs />
             <Suggestion />
          </Flex>
       </Container>
