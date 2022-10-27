@@ -8,6 +8,7 @@ function ReadingListCard() {
          bg={"blackAlpha.100"}
          border={"1px solid"}
          borderColor={"blackAlpha.200"}
+         display={{ base: "none", md: "flex" }}
       >
          <VStack
             p={9}

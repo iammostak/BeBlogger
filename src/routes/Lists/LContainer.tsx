@@ -8,18 +8,16 @@ function LContainer() {
 
    return (
       <VStack
-         px={12}
+         px={{ base: 4, md: 12 }}
          py={10}
-         w={"67%"}
+         w={{ base: "100%", lg: "67%" }}
          h={"100%"}
-         borderRight={"1px solid"}
-         borderColor={"blackAlpha.200"}
          align={"stretch"}
       >
          <HStack justify={"space-between"}>
             <Heading
                textAlign={"left"}
-               fontSize={44}
+               fontSize={{ base: 33, md: 44 }}
                fontWeight={800}
                color={"blackAlpha.800"}
             >
@@ -27,6 +25,7 @@ function LContainer() {
             </Heading>
             <Button
                px={5}
+               size={{ base: "sm", md: "md" }}
                bg={"#1b8918"}
                color={"white"}
                fontWeight={"normal"}
@@ -46,14 +45,14 @@ function LContainer() {
          >
             <Box
                onClick={() => setCurr(0)}
-               color={curr === 0 ? "blackAlpha.900" : "blackAlpha.700"}
+               color={curr === 0 ? "blackAlpha.900" : "blackAlpha.600"}
                cursor={"pointer"}
             >
                Saved
             </Box>
             <Box
                onClick={() => setCurr(1)}
-               color={curr === 1 ? "blackAlpha.900" : "blackAlpha.700"}
+               color={curr === 1 ? "blackAlpha.900" : "blackAlpha.600"}
                cursor={"pointer"}
             >
                Highlights

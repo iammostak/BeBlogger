@@ -4,11 +4,16 @@ import { CiBookmarkPlus } from "react-icons/ci";
 
 function CreateListCard() {
    return (
-      <HStack h={190} overflow={"hidden"} bg={"#1b8918"} borderRadius={"md"}>
-         <VStack p={7} w={"50%"} align={"stretch"} spacing={5}>
+      <HStack
+         h={{ base: 140, md: 190 }}
+         overflow={"hidden"}
+         bg={"#1b8918"}
+         borderRadius={"md"}
+      >
+         <VStack p={{ base: 3, md: 7 }} w={"50%"} align={"stretch"} spacing={5}>
             <Heading
                textAlign={"left"}
-               size={"md"}
+               size={{ base: "xs", md: "md" }}
                color={"white"}
                fontFamily={"Helvetica"}
                fontWeight={800}
@@ -17,9 +22,10 @@ function CreateListCard() {
             </Heading>
             <Box textAlign={"left"}>
                <Button
+                  size={{ base: "xs", md: "md" }}
                   borderRadius={30}
                   fontWeight={"normal"}
-                  fontSize={"sm"}
+                  fontSize={{ base: "xs", md: "sm" }}
                   bg={"#191918"}
                   color={"white"}
                   _hover={{ bg: "#191918" }}
@@ -29,9 +35,9 @@ function CreateListCard() {
             </Box>
          </VStack>
          <HStack
-            w={"40%"}
+            w={{ base: "45%", md: "40%" }}
             h={"140%"}
-            borderRadius={140}
+            borderRadius={{ base: 0, md: 140 }}
             bg={"#389937"}
             justify={"center"}
          >
@@ -39,7 +45,14 @@ function CreateListCard() {
                <CiBookmarkPlus size={30} color="#1b8918" />
             </Box>
          </HStack>
-         <VStack py={5} px={7} w={"6%"} h={"100%"} color={"white"}>
+         <VStack
+            py={5}
+            px={7}
+            w={"6%"}
+            h={"100%"}
+            color={"white"}
+            display={{ base: "none", md: "flex" }}
+         >
             <CloseIcon boxSize={3} />
          </VStack>
       </HStack>

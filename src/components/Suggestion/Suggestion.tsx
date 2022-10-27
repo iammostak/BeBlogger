@@ -45,9 +45,12 @@ function Suggestion() {
          w={"33%"}
          h={"300vh"}
          align={"stretch"}
+         borderLeft={"1px solid"}
+         borderColor={"blackAlpha.200"}
          spacing={10}
          pos={"sticky"}
          top={"-200vh"}
+         display={{ base: "none", lg: "flex" }}
       >
          <Button
             w={"100%"}

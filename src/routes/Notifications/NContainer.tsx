@@ -6,17 +6,15 @@ function NContainer() {
 
    return (
       <VStack
-         px={12}
+         px={{ base: 4, md: 12 }}
          py={10}
-         w={"67%"}
+         w={{ base: "100%", lg: "67%" }}
          h={"100%"}
-         borderRight={"1px solid"}
-         borderColor={"blackAlpha.200"}
          align={"stretch"}
       >
          <Heading
             textAlign={"left"}
-            fontSize={44}
+            fontSize={{ base: 33, md: 44 }}
             fontWeight={800}
             color={"blackAlpha.800"}
          >
@@ -32,14 +30,14 @@ function NContainer() {
          >
             <Box
                onClick={() => setCurr(0)}
-               color={curr === 0 ? "blackAlpha.900" : "blackAlpha.700"}
+               color={curr === 0 ? "blackAlpha.900" : "blackAlpha.600"}
                cursor={"pointer"}
             >
                All
             </Box>
             <Box
                onClick={() => setCurr(1)}
-               color={curr === 1 ? "blackAlpha.900" : "blackAlpha.700"}
+               color={curr === 1 ? "blackAlpha.900" : "blackAlpha.600"}
                cursor={"pointer"}
             >
                Responses
