@@ -5,7 +5,15 @@ function Write() {
    return (
       <Container as={Flex} maxW={"container"} p={0} m={0}>
          <Sidebar route="write" />
-         <Box w={"93.8%"}>Write a story!</Box>
+         <Flex
+            w={"100%"}
+            pos={"relative"}
+            ml={{ base: "17%", md: "11%", lg: "6.2%" }}
+         >
+            <Box w={"100%"} m={12}>
+               Write a story!
+            </Box>
+         </Flex>
       </Container>
    );
 }

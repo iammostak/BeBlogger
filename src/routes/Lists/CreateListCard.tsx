@@ -53,7 +53,7 @@ function CreateListCard() {
             color={"white"}
             display={{ base: "none", md: "flex" }}
          >
-            <CloseIcon boxSize={3} />
+            <CloseIcon boxSize={3} cursor={"pointer"} />
          </VStack>
       </HStack>
    );
