@@ -9,6 +9,7 @@ import {
    ModalHeader,
    ModalOverlay,
    Text,
+   useToast,
    VStack,
 } from "@chakra-ui/react";
 import { FcGoogle } from "react-icons/fc";
@@ -39,11 +40,23 @@ function SigninButton({
 }: Params) {
    const dispatch = useDispatch();
    const navigate = useNavigate();
+   const toast = useToast();
 
    const handleLogout = () => {
-      dispatch<any>(logoutAction());
-      setToken();
-      navigate("/");
+      dispatch<any>(logoutAction()).then((res: any) => {
+         if (res) {
+            toast({
+               title: "You logged out from your account",
+               // description: "You logged out from your account.",
+               status: "warning",
+               duration: 3000,
+               isClosable: true,
+               position: "top",
+            });
+         }
+         setToken();
+         navigate("/");
+      });
    };
 
    return (

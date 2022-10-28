@@ -50,6 +50,7 @@ function SigninWithEmail({
    const dispatch = useDispatch();
    const toast = useToast();
    const navigate = useNavigate();
+   const { loading } = useSelector((store: any) => store.auth);
 
    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
       const { name, value } = event.target;
@@ -64,8 +65,8 @@ function SigninWithEmail({
          if (res) {
             onSigninWithEmailClose();
             toast({
-               title: "Login Success.",
-               description: "Hurray! You logged in to your account.",
+               title: "You logged in to your account",
+               // description: "Hurray! You logged in to your account.",
                status: "success",
                duration: 3000,
                isClosable: true,
@@ -74,8 +75,8 @@ function SigninWithEmail({
             navigate("/home");
          } else {
             toast({
-               title: "Login Failed.",
-               description: "Please try to login with valid credentials.",
+               title: "Invalid Credentials",
+               // description: "Please try to login with valid credentials.",
                status: "error",
                duration: 3000,
                isClosable: true,
@@ -180,6 +181,7 @@ function SigninWithEmail({
                   spacing={4}
                >
                   <Button
+                     isLoading={loading}
                      onClick={handleSubmit}
                      py={4}
                      bg={"#191918"}

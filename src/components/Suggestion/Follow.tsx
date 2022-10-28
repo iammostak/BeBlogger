@@ -69,16 +69,18 @@ function Follow() {
                      </Text>
                   </VStack>
                </HStack>
-               <Button
-                  size={"sm"}
-                  fontSize={"xs"}
-                  fontWeight={"normal"}
-                  variant={"outline"}
-                  borderRadius={30}
-                  borderColor={"blackAlpha.600"}
-               >
-                  Follow
-               </Button>
+               <Box>
+                  <Button
+                     size={"sm"}
+                     fontSize={"xs"}
+                     fontWeight={"normal"}
+                     variant={"outline"}
+                     borderRadius={30}
+                     borderColor={"blackAlpha.600"}
+                  >
+                     Follow
+                  </Button>
+               </Box>
             </HStack>
          ))}
          <Text

@@ -22,7 +22,7 @@ import {
 import { useState, useEffect, ChangeEvent } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { BiHide, BiShow } from "react-icons/bi";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { signupAction } from "../../store/auth/auth.actions";
 
 type Params = {
@@ -50,6 +50,7 @@ function SignupWithEmail({
    const [user, setUser] = useState(User);
    const dispatch = useDispatch();
    const toast = useToast();
+   const { loading } = useSelector((store: any) => store.auth);
 
    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
       const { name, value } = event.target;
@@ -64,8 +65,8 @@ function SignupWithEmail({
          if (res) {
             onSignupWithEmailClose();
             toast({
-               title: "Account Created.",
-               description: "Yahoo! We've created a account for you.",
+               title: "Your account has been created",
+               // description: "Yahoo! We've created a account for you.",
                status: "success",
                duration: 3000,
                isClosable: true,
@@ -74,8 +75,8 @@ function SignupWithEmail({
             onSigninWithEmailOpen();
          } else {
             toast({
-               title: "Signup Failed.",
-               description: "User already exists, please try to login.",
+               title: "Can't sign up with already registered email",
+               // description: "User already exists, please try to login.",
                status: "error",
                duration: 3000,
                isClosable: true,
@@ -180,6 +181,7 @@ function SignupWithEmail({
                   spacing={4}
                >
                   <Button
+                     isLoading={loading}
                      onClick={handleSubmit}
                      py={4}
                      bg={"#191918"}

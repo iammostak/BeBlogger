@@ -52,18 +52,20 @@ function Suggestion() {
          top={"-200vh"}
          display={{ base: "none", lg: "flex" }}
       >
-         <Button
-            w={"100%"}
-            color={"white"}
-            fontWeight={"normal"}
-            fontSize={"sm"}
-            bg={"#191918"}
-            borderRadius={30}
-            _hover={{ bg: "#191918" }}
-            letterSpacing={0.5}
-         >
-            Get unlimited access
-         </Button>
+         <Box>
+            <Button
+               w={"100%"}
+               color={"white"}
+               fontWeight={"normal"}
+               fontSize={"sm"}
+               bg={"#191918"}
+               borderRadius={30}
+               _hover={{ bg: "#191918" }}
+               letterSpacing={0.5}
+            >
+               Get unlimited access
+            </Button>
+         </Box>
          <InputGroup>
             <InputLeftElement
                ml={1}
