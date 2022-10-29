@@ -65,7 +65,9 @@ function BlogCard(item: Props) {
                <Heading textAlign={"left"} size={"md"}>
                   {blog_title}
                </Heading>
-               <Text textAlign={"left"}>{blog_sub_title}</Text>
+               <Text textAlign={"left"} fontFamily={"Times"}>
+                  {blog_sub_title}
+               </Text>
             </VStack>
             <Image src={blog_img} alt="blog_img" boxSize={111} w={121} />
          </HStack>
