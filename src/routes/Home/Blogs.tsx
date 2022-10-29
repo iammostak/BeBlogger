@@ -1,6 +1,7 @@
 import { AddIcon } from "@chakra-ui/icons";
 import { Box, HStack, VStack } from "@chakra-ui/react";
 import { useState } from "react";
+import BlogList from "./BlogList";
 
 function Blogs() {
    const [curr, setCurr] = useState(0);
@@ -8,7 +9,7 @@ function Blogs() {
    return (
       <VStack
          px={12}
-         py={10}
+         pb={10}
          w={{ base: "100%", lg: "67%" }}
          h={"100%"}
          align={"stretch"}
@@ -16,14 +17,16 @@ function Blogs() {
       >
          <HStack
             pb={4}
+            pt={10}
             pos={"sticky"}
-            top={6}
+            top={-6}
             borderBottom={"1px solid"}
             borderColor={"blackAlpha.200"}
             color={"blackAlpha.700"}
             fontSize={"sm"}
             justify={"space-around"}
             display={{ base: "none", md: "flex" }}
+            bg={"white"}
          >
             <Box>
                <AddIcon color={"blackAlpha.600"} />
@@ -71,6 +74,7 @@ function Blogs() {
                Software Engineering
             </Box>
          </HStack>
+         <BlogList />
       </VStack>
    );
 }
