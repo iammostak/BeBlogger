@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
 import RequireAuth from "../hoc/RequireAuth";
+import Blog from "./Blog/Blog";
 import Home from "./Home/Home";
 import Landing from "./Landing/Landing";
 import Lists from "./Lists/Lists";
@@ -57,6 +58,14 @@ function AllRoutes() {
             element={
                <RequireAuth>
                   <Write />
+               </RequireAuth>
+            }
+         />
+         <Route
+            path="/blog"
+            element={
+               <RequireAuth>
+                  <Blog />
                </RequireAuth>
             }
          />

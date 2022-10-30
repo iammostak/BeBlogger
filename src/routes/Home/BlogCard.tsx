@@ -8,10 +8,9 @@ import {
    VStack,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { CiBookmarkPlus } from "react-icons/ci";
 import { BsBookmarkCheckFill, BsBookmarkPlus } from "react-icons/bs";
-import { MdBookmarkAdded, MdOutlineBookmarkAdd } from "react-icons/md";
 import { FiMoreHorizontal } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
    avatar: string;
@@ -28,11 +27,11 @@ type Props = {
 };
 
 function BlogCard(item: Props) {
-   const [state, setState] = useState(false);
+   const [state, setState] = useState<boolean>(false);
+   const navigate = useNavigate();
    const {
       avatar,
       name,
-      role,
       date,
       blog_on,
       blog_img,
@@ -43,7 +42,12 @@ function BlogCard(item: Props) {
    } = item;
 
    return (
-      <VStack align={"stretch"} spacing={3}>
+      <VStack
+         align={"stretch"}
+         spacing={3}
+         cursor={"pointer"}
+         onClick={() => navigate("/blog")}
+      >
          <HStack spacing={4}>
             <Image src={avatar} alt={name} boxSize={30} borderRadius={50} />
             <HStack spacing={1.5}>
@@ -60,7 +64,7 @@ function BlogCard(item: Props) {
                </Text>
             </HStack>
          </HStack>
-         <HStack justify={"space-between"} spacing={69}>
+         <HStack justify={"space-between"} spacing={63}>
             <VStack align={"stretch"} spacing={4}>
                <Heading textAlign={"left"} size={"md"}>
                   {blog_title}
@@ -69,7 +73,7 @@ function BlogCard(item: Props) {
                   {blog_sub_title}
                </Text>
             </VStack>
-            <Image src={blog_img} alt="blog_img" boxSize={111} w={121} />
+            <Image src={blog_img} alt="blog_img" boxSize={111} w={127} />
          </HStack>
          <HStack justify={"space-between"} w={"73%"}>
             <HStack spacing={3}>

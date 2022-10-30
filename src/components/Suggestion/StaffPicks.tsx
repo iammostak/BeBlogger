@@ -11,7 +11,14 @@ function StaffPicks(item: Props) {
    return (
       <VStack align={"left"}>
          <HStack>
-            <Image boxSize={5} borderRadius={50} src={avatar} />
+            <Image
+               boxSize={5}
+               borderRadius={50}
+               src={avatar}
+               border={"1px solid"}
+               borderColor={"blackAlpha.200"}
+               bg={"blackAlpha.200"}
+            />
             <Text
                fontSize={"xs"}
                color={"blackAlpha.800"}

@@ -51,6 +51,9 @@ function Follow() {
                      borderRadius={50}
                      src={item.avatar}
                      alt="avatar"
+                     border={"1px solid"}
+                     borderColor={"blackAlpha.200"}
+                     bg={"blackAlpha.200"}
                   />
                   <VStack align={"stretch"}>
                      <Heading

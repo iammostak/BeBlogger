@@ -1,13 +1,9 @@
-import { Box, Container, Flex, VStack } from "@chakra-ui/react";
-import Suggestion from "../../components/Suggestion/Suggestion";
+import { Container, Flex } from "@chakra-ui/react";
 import Sidebar from "../../components/Sidebar/Sidebar";
-import Blogs from "./Blogs";
-import Blog from "../Blog/BlogItem";
-import { useState } from "react";
+import Suggestion from "../../components/Suggestion/Suggestion";
+import BlogItem from "./BlogItem";
 
-function Home() {
-   const [state, setState] = useState<boolean>(false);
-
+function Blog() {
    return (
       <Container as={Flex} maxW={"container"} p={0} m={0}>
          <Sidebar route="home" />
@@ -16,11 +12,11 @@ function Home() {
             pos={"relative"}
             ml={{ base: "17%", md: "11%", lg: "6.2%" }}
          >
-            <Blogs />
+            <BlogItem />
             <Suggestion />
          </Flex>
       </Container>
    );
 }
 
-export default Home;
+export default Blog;
