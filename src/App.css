@@ -8,5 +8,6 @@
 }
 
 .blogIcon:hover {
+   cursor: pointer;
    color: rgb(36, 36, 36);
 }

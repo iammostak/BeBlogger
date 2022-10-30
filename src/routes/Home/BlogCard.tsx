@@ -13,6 +13,7 @@ import { FiMoreHorizontal } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
 type Props = {
+   id: number;
    avatar: string;
    name: string;
    role: string;
@@ -30,6 +31,7 @@ function BlogCard(item: Props) {
    const [state, setState] = useState<boolean>(false);
    const navigate = useNavigate();
    const {
+      id,
       avatar,
       name,
       date,
@@ -46,7 +48,7 @@ function BlogCard(item: Props) {
          align={"stretch"}
          spacing={3}
          cursor={"pointer"}
-         onClick={() => navigate("/blog")}
+         onClick={() => navigate(`/home/${id}`)}
       >
          <HStack spacing={4}>
             <Image src={avatar} alt={name} boxSize={30} borderRadius={50} />

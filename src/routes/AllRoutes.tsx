@@ -62,7 +62,7 @@ function AllRoutes() {
             }
          />
          <Route
-            path="/blog"
+            path="/home/:id"
             element={
                <RequireAuth>
                   <Blog />

@@ -18,6 +18,7 @@ const months = [
 
 const blogs = [
    {
+      id: 1,
       avatar: "https://avatars.githubusercontent.com/u/101392142?v=4",
       name: "Suraj Kumar Mishra",
       role: "Aspiring Full Stack Web Developer",

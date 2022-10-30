@@ -3,6 +3,11 @@ import BlogHeader from "./BlogHeader";
 import BlogContainer from "./BlogContainer";
 import { BiArrowBack } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
+import { AiFillLike, AiOutlineComment, AiOutlineLike } from "react-icons/ai";
+import { CiShare1 } from "react-icons/ci";
+import { BsBookmarkCheckFill, BsBookmarkFill } from "react-icons/bs";
+import { FiMoreHorizontal } from "react-icons/fi";
+import { useState } from "react";
 
 const months = [
    "Jan",
@@ -20,6 +25,7 @@ const months = [
 ];
 
 const blog = {
+   id: 1,
    avatar: "https://avatars.githubusercontent.com/u/101392142?v=4",
    name: "Suraj Kumar Mishra",
    role: "Aspiring Full Stack Web Developer",
@@ -190,12 +196,13 @@ const blog = {
 
 function BlogItem() {
    const navigate = useNavigate();
+   const [state, setState] = useState<boolean>(false);
 
    return (
       <VStack w={{ base: "100%", lg: "67%" }} h={"100%"} align={"stretch"}>
          <HStack
-            px={12}
             py={3}
+            px={12}
             borderBottom={"1px solid"}
             borderColor={"blackAlpha.200"}
             justify={"space-between"}
@@ -232,6 +239,51 @@ function BlogItem() {
          </HStack>
          <BlogHeader {...blog} />
          <BlogContainer {...blog} />
+         <HStack
+            py={4}
+            px={12}
+            borderTop={"1px solid"}
+            borderColor={"blackAlpha.200"}
+            justify={"space-between"}
+         >
+            <HStack>
+               <Button
+                  variant={"ghost"}
+                  color={"blackAlpha.500"}
+                  borderRadius={30}
+                  _hover={{ bg: "blackAlpha.100" }}
+                  leftIcon={<AiOutlineLike size={27} color={"gray"} />}
+               >
+                  0
+               </Button>
+               <Button
+                  variant={"ghost"}
+                  color={"blackAlpha.500"}
+                  borderRadius={30}
+                  _hover={{ bg: "blackAlpha.100" }}
+                  leftIcon={<AiOutlineComment size={24} color={"gray"} />}
+               >
+                  0
+               </Button>
+            </HStack>
+            <HStack spacing={7}>
+               <CiShare1 size={24} className="blogIcon" />
+               {state ? (
+                  <BsBookmarkCheckFill
+                     size={18}
+                     onClick={() => setState(!state)}
+                     style={{ cursor: "pointer" }}
+                  />
+               ) : (
+                  <BsBookmarkFill
+                     size={18}
+                     onClick={() => setState(!state)}
+                     className="blogIcon"
+                  />
+               )}
+               <FiMoreHorizontal size={24} className="blogIcon" />
+            </HStack>
+         </HStack>
       </VStack>
    );
 }

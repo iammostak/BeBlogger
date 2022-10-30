@@ -18,7 +18,7 @@ type Props = {
 
 function BlogContainer(blog: Props) {
    return (
-      <VStack px={12} align={"stretch"}>
+      <VStack px={12} pb={4} align={"stretch"}>
          <Heading textAlign={"left"} fontSize={"3xl"} fontWeight={800}>
             {blog.blog_title}
          </Heading>
