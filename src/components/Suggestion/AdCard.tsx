@@ -12,7 +12,7 @@ function AdCard() {
       >
          <HStack justify={"space-between"}>
             <Heading textAlign={"left"} size={"sm"}>
-               Writing on Medium
+               Writing on BeBlogger
             </Heading>
             <CloseIcon h={3} cursor={"pointer"} />
          </HStack>

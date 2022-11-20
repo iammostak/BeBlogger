@@ -43,6 +43,7 @@ function SignupButton({
             onClick={() => {
                token.length === 0 ? onSignupOpen() : navigate("/home");
             }}
+            variant={"none"}
             bg={offset > 450 ? "#1b8918" : "#191918"}
             color={"white"}
             fontWeight={400}
@@ -69,7 +70,7 @@ function SignupButton({
                   fontWeight={400}
                   letterSpacing={1}
                >
-                  Join Medium.
+                  Join BeBlogger.
                </ModalHeader>
 
                <ModalCloseButton />
@@ -158,7 +159,7 @@ function SignupButton({
                      textAlign={"center"}
                      fontSize={"sm"}
                   >
-                     Click “Sign Up” to agree to Medium’s{" "}
+                     Click “Sign Up” to agree to BeBlogger’s{" "}
                      <span
                         style={{
                            textDecoration: "underline",
@@ -167,7 +168,7 @@ function SignupButton({
                      >
                         Terms of Service
                      </span>{" "}
-                     and acknowledge that Medium’s{" "}
+                     and acknowledge that BeBlogger’s{" "}
                      <span
                         style={{
                            textDecoration: "underline",

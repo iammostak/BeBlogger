@@ -6,7 +6,7 @@ import NContainer from "./NContainer";
 
 function Notifications() {
    useEffect(() => {
-      document.title = "Notifications - Medium";
+      document.title = "Notifications - BeBlogger";
    }, []);
 
    return (

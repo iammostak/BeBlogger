@@ -22,7 +22,7 @@ function Sidebar({ route }: Params) {
    const navigate = useNavigate();
 
    useEffect(() => {
-      document.title = "Medium";
+      document.title = "BeBlogger";
       setActive(route);
    }, []);
 

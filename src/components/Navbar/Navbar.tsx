@@ -1,14 +1,15 @@
 import {
    Box,
    Flex,
+   Heading,
    HStack,
    Image,
    Text,
    useDisclosure,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
-import medium_logo from "../../assets/medium_logo.png";
+import { SiMedium } from "react-icons/si";
+import { NavLink, useNavigate } from "react-router-dom";
 import SigninButton from "./SigninButton";
 import SigninWithEmail from "./SigninWithEmail";
 import SignupButton from "./SignupButton";
@@ -47,6 +48,7 @@ function Navbar() {
    const [offset, setOffset] = useState(0);
    let auth = JSON.parse(`${localStorage.getItem("jwt")}`) || Auth;
    const [token, setToken] = useState<string>("");
+   const navigate = useNavigate();
 
    useEffect(() => {
       const onScroll = () => setOffset(window.pageYOffset);
@@ -72,13 +74,17 @@ function Navbar() {
          top={0}
          zIndex={7}
       >
-         <Box as={NavLink} to={"/"}>
-            <Image
-               h={{ base: "20px", md: "24px" }}
-               src={medium_logo}
-               alt="medium_logo"
+         <HStack as={NavLink} to={"/"} spacing={1} align={"center"}>
+            <SiMedium
+               onClick={() => navigate("/")}
+               color={"black"}
+               size={40}
+               style={{ cursor: "pointer" }}
             />
-         </Box>
+            <Heading fontSize={"30px"} fontFamily={"Times"}>
+               BeBlogger
+            </Heading>
+         </HStack>
          <HStack fontSize={14} spacing={{ base: 3, lg: 7 }} fontWeight={500}>
             <HStack
                display={{ base: "none", md: "flex" }}

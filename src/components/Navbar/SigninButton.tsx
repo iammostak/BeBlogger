@@ -193,7 +193,7 @@ function SigninButton({
                      textAlign={"center"}
                      fontSize={"sm"}
                   >
-                     Click “Sign Up” to agree to Medium’s{" "}
+                     Click “Sign Up” to agree to BeBlogger’s{" "}
                      <span
                         style={{
                            textDecoration: "underline",
@@ -202,7 +202,7 @@ function SigninButton({
                      >
                         Terms of Service
                      </span>{" "}
-                     and acknowledge that Medium’s{" "}
+                     and acknowledge that BeBlogger’s{" "}
                      <span
                         style={{
                            textDecoration: "underline",

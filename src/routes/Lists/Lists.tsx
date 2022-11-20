@@ -6,7 +6,7 @@ import LContainer from "./LContainer";
 
 function Lists() {
    useEffect(() => {
-      document.title = "Your lists - Medium";
+      document.title = "Your lists - BeBlogger";
    }, []);
 
    return (

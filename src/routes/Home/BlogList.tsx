@@ -198,7 +198,7 @@ function BlogList() {
          divider={<StackDivider borderColor="gray.200" />}
       >
          {blogs.map((item) =>
-            new Array(20).fill("").map(() => <BlogCard {...item} />)
+            new Array(20).fill("").map(() => <BlogCard key={item.id} {...item} />)
          )}
       </VStack>
    );

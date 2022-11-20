@@ -44,12 +44,7 @@ function BlogCard(item: Props) {
    } = item;
 
    return (
-      <VStack
-         align={"stretch"}
-         spacing={3}
-         cursor={"pointer"}
-         onClick={() => navigate(`/home/${id}`)}
-      >
+      <VStack align={"stretch"} spacing={3} cursor={"pointer"}>
          <HStack spacing={4}>
             <Image src={avatar} alt={name} boxSize={30} borderRadius={50} />
             <HStack spacing={1.5}>
@@ -66,7 +61,11 @@ function BlogCard(item: Props) {
                </Text>
             </HStack>
          </HStack>
-         <HStack justify={"space-between"} spacing={63}>
+         <HStack
+            justify={"space-between"}
+            spacing={63}
+            onClick={() => navigate(`/home/${id}`)}
+         >
             <VStack align={"stretch"} spacing={4}>
                <Heading textAlign={"left"} size={"md"}>
                   {blog_title}

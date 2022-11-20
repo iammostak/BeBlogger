@@ -5,7 +5,7 @@ function SContainer() {
    const [curr, setCurr] = useState(0);
 
    useEffect(() => {
-      document.title = "Your stories - Medium";
+      document.title = "Your stories - BeBlogger";
    }, []);
 
    return (
@@ -101,7 +101,7 @@ function SContainer() {
                      >
                         read
                      </span>{" "}
-                     on Medium.
+                     on BeBlogger.
                   </Text>
                </>
             ) : curr === 1 ? (

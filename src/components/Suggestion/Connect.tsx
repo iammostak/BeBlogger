@@ -25,7 +25,7 @@ function Connect() {
             />
          </HStack>
          <Text w={"90%"} color={"blackAlpha.800"}>
-            Discover Medium writers you already follow on Twitter.
+            Discover BeBlogger writers you already follow on Twitter.
          </Text>
          <Button
             w={"70%"}
