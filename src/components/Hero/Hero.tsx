@@ -40,10 +40,11 @@ function Hero() {
                px={{ base: 10, md: 14 }}
                bg={"#191918"}
                color={"white"}
+               variant={"none"}
                fontWeight={400}
                borderRadius={30}
                letterSpacing={0.5}
-               _hover={{ bg: "#191918" }}
+               size={{ base: "md", md: "lg" }}
             >
                Start reading
             </Button>
