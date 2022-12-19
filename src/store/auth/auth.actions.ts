@@ -18,7 +18,7 @@ export const signupAction = (creds: userCred) => async (dispatch: any) => {
    dispatch({ type: SIGNUP_LOADING });
    try {
       let res = await axios.post(
-         `${import.meta.env.VITE_API_URL}/users/signup`,
+         `${import.meta.env.VITE_API_URL}/user/signup`,
          creds
       );
       dispatch({ type: SIGNUP_SUCCESS });
@@ -33,7 +33,7 @@ export const loginAction = (creds: userCred) => async (dispatch: any) => {
    dispatch({ type: LOGIN_LOADING });
    try {
       let res = await axios.post(
-         `${import.meta.env.VITE_API_URL}/users/login`,
+         `${import.meta.env.VITE_API_URL}/user/login`,
          creds
       );
       dispatch({ type: LOGIN_SUCCESS, payload: res.data });
